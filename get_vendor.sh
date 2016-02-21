@@ -75,27 +75,19 @@ $(make_multilib_paths "${DRM32}")
 
 # Codecs
 CODECS32="/lib/libstagefrighthw.so \
-/lib/libMtkOmxAdpcmDec.so /lib/libMtkOmxAdpcmEnc.so /lib/libMtkOmxAlacDec.so /lib/libMtkOmxApeDec.so \
-/lib/libMtkOmxCore.so /lib/libMtkOmxFlacDec.so /lib/libMtkOmxG711Dec.so /lib/libMtkOmxGsmDec.so \
-/lib/libMtkOmxMp3Dec.so /lib/libMtkOmxRawDec.so /lib/libMtkOmxVdec.so /lib/libMtkOmxVenc.so /lib/libMtkOmxVorbisEnc.so \
-/lib/libmhalImageCodec.so /lib/libmmprofile.so /lib/libmtb.so \
+/lib/libMtkOmxAdpcmDec.so /lib/libMtkOmxAdpcmEnc.so /lib/libMtkOmxAlacDec.so \
+/lib/libMtkOmxApeDec.so /lib/libMtkOmxG711Dec.so /lib/libMtkOmxGsmDec.so \
+/lib/libMtkOmxMp3Dec.so /lib/libMtkOmxRawDec.so /lib/libMtkOmxVorbisEnc.so \
+/lib/libmhalImageCodec.so /lib/libmmprofile.so \
 /lib/libJpgDecPipe.so /lib/libGdmaScalerPipe.so /lib/libSwJpgCodec.so /lib/libJpgEncPipe.so /lib/libmtkjpeg.so \
-/lib/libstagefright_amrnb_common.so /lib/libstagefright_avc_common.so /lib/libstagefright_enc_common.so \
-/lib/libstagefright_soft_ffmpegadec.so \
-/lib/extend/libCodec.adt.so /lib/extend/libCodec.adpcmdec.so /lib/extend/libCodec.alacdec.so /lib/extend/libCodec.ape.so \
-/lib/extend/libCodec.dsddec.so /lib/extend/libCodec.dts.so /lib/extend/libCodec.lpcm.so /lib/extend/libCodec.mp3dec.so \
-/lib/extend/libCodec.mp3enc.so /lib/extend/libCodec.mpegdec.so /lib/extend/libCodec.radec.so /lib/extend/libCodec.raw.so \
-/lib/extend/libCodec.rvdec.so /lib/extend/libCodec.wmadec.so \
-/lib/extend/libExtractor.AC3.so /lib/extend/libExtractor.AIFF.so /lib/extend/libExtractor.APE.so /lib/extend/libExtractor.ASF.so \
-/lib/extend/libExtractor.AVI.so /lib/extend/libExtractor.DTS.so \
-/lib/extend/libExtractor.FLAC.so /lib/extend/libExtractor.FLV.so /lib/extend/libExtractor.MP3.so /lib/extend/libExtractor.MPEG.so \
-/lib/extend/libExtractor.MPEG2TS.so /lib/extend/libExtractor.MPEG4.so /lib/extend/libExtractor.REALMEDIA.so \
-/lib/extend/libExtractor.WAV.so /lib/extend/libExtractor.matroska.so \
 /lib/libBnMtkCodec.so \
 "
+# /lib/libstagefright_amrnb_common.so /lib/libstagefright_avc_common.so /lib/libstagefright_enc_common.so
 CODECS="\
 /etc/mtk_omx_core.cfg \
 /bin/MtkCodecService \
+/lib/libMtkOmxCore.so /lib/libmtb.so \
+/lib/libMtkOmxFlacDec.so /lib/libMtkOmxVdec.so /lib/libMtkOmxVenc.so \
 $(make_multilib_paths "${CODECS32}")
 "
 
@@ -184,7 +176,7 @@ MISC="/bin/akmd8963 /bin/akmd8975 /bin/ami304d /bin/bmm050d /bin/mc6420d /bin/me
 "
 
 #SYSTEM="$FIRMWARE $WIFI $GL $DRM $CODECS $RIL $AUDIO $BLUETOOTH $CAMERA $SENSORS $GPS $CHARGER $MISC"
-SYSTEM="$FIRMWARE $WIFI $BLUETOOTH $GL $DRM $RIL $AUDIO $CHARGER"
+SYSTEM="$FIRMWARE $WIFI $BLUETOOTH $GL $DRM $RIL $AUDIO $CODECS $CHARGER"
 
 rename_file () {
 	local src
