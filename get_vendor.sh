@@ -170,9 +170,13 @@ CAMERA="\
 $(make_multilib_paths "${CAMERA32}")
 "
 
-SENSORS="/lib/hw/sensors.mt6735.so \
-/lib/libinvensense_hal.so /lib/libmllite.so \
+SENSORS32="/lib/hw/sensors.mt6735.so \
+"
+SENSORS="\
+/bin/akmd8963 /bin/akmd8975 /bin/akmd09911 /bin/ami304d /bin/bmm050d \
+/bin/mc6420d /bin/memsicd /bin/memsicd3416x /bin/msensord /bin/s62xd \
 /bin/geomagneticd /bin/magd /bin/orientationd \
+$(make_multilib_paths "${SENSORS32}")
 "
 
 GPS="/lib/hw/gps.default.so /bin/mtk_agpsd /bin/wifi2agps /xbin/mnld /xbin/BGW /xbin/MPED \
@@ -181,14 +185,13 @@ GPS="/lib/hw/gps.default.so /bin/mtk_agpsd /bin/wifi2agps /xbin/mnld /xbin/BGW /
 
 CHARGER="/bin/kpoc_charger /lib/libshowlogo.so /lib/libsuspend.so"
 
-MISC="/bin/akmd8963 /bin/akmd8975 /bin/ami304d /bin/bmm050d /bin/mc6420d /bin/memsicd /bin/memsicd3416x \
-/bin/s62xd /bin/thermal /bin/thermald /bin/thermal_manager \
+MISC=" /bin/thermal /bin/thermald /bin/thermal_manager \
 /bin/ppl_agent /bin/matv \
 /bin/immvibed /lib/libpparam.so \
 "
 
 #SYSTEM="$FIRMWARE $WIFI $GL $DRM $CODECS $RIL $AUDIO $BLUETOOTH $CAMERA $SENSORS $GPS $CHARGER $MISC"
-SYSTEM="$FIRMWARE $WIFI $BLUETOOTH $GL $DRM $RIL $AUDIO $CODECS $CAMERA $CHARGER"
+SYSTEM="$FIRMWARE $WIFI $BLUETOOTH $GL $DRM $RIL $AUDIO $CODECS $CAMERA $SENSORS $CHARGER"
 
 rename_file () {
 	local src
