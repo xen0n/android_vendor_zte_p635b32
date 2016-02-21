@@ -121,6 +121,14 @@ RIL32="/lib/mtk-ril.so /lib/mtk-rilmd2.so /lib/librilmtk.so /lib/librilmtkmd2.so
 /lib/libatciserv_jni.so /lib/libaal.so \
 /lib/libccci_util.so \
 "
+CDMA32="\
+/lib/libc2kutils.so \
+"
+CDMA="\
+/bin/statusd /bin/flashlessd /bin/viaradiooptions /bin/viarild /bin/pppd_via \
+/lib/libc2kril.so /lib/libviatelecom-withuim-ril.so \
+$(make_multilib_paths "${CDMA32}")
+"
 RIL="\
 /bin/nvram_daemon /bin/nvram_agent_binder /bin/aee \
 /bin/gsm0710muxd /bin/gsm0710muxdmd2 /bin/ccci_fsd /bin/ccci_mdinit \
@@ -128,14 +136,22 @@ RIL="\
 /bin/md_ctrl /bin/muxreport /bin/mtkrild /bin/mtkrildmd2 \
 /bin/terservice /lib64/libterservice.so \
 /lib/libexttestmode.so \
-$(make_multilib_paths "${RIL32}")
+$(make_multilib_paths "${RIL32}") \
+${CDMA}
 "
 
-AUDIO="/lib/hw/audio.primary.mt6735.so /lib/libblisrc.so /lib/libspeech_enh_lib.so /lib/libaudiocustparam.so /lib/libaudiosetting.so \
+# fxxk, audio depends on c2k ril on this model
+AUDIO32="\
+/lib/hw/audio.primary.mt6735.so \
+/lib/libblisrc.so /lib/libblisrc32.so /lib/libspeech_enh_lib.so /lib/libaudiocustparam.so /lib/libaudiosetting.so \
 /lib/libaudiocompensationfilter.so /lib/libcvsd_mtk.so /lib/libmsbc_mtk.so /lib/libaudiocomponentengine.so \
-/lib/libblisrc32.so /lib/libbessound_hd_mtk.so /lib/libmtklimiter.so /lib/libmtkshifter.so /lib/libaudiodcrflt.so \
-/lib/libtfa9890_interface.so /lib/libtinyxml.so \
-/etc/tfa98xx/ /etc/audio_device.xml \
+/lib/libbessound_hd_mtk.so /lib/libmtklimiter.so /lib/libmtkshifter.so /lib/libaudiodcrflt.so \
+/lib/libspeech_enh_lib.so \
+/lib/libtinyalsa.so /lib/libtinyxml.so \
+"
+AUDIO="\
+/etc/audio_device.xml \
+$(make_multilib_paths "${AUDIO32}")
 "
 
 #CAMERA="/lib/hw/camera.mt6735.so \
@@ -168,7 +184,7 @@ MISC="/bin/akmd8963 /bin/akmd8975 /bin/ami304d /bin/bmm050d /bin/mc6420d /bin/me
 "
 
 #SYSTEM="$FIRMWARE $WIFI $GL $DRM $CODECS $RIL $AUDIO $BLUETOOTH $CAMERA $SENSORS $GPS $CHARGER $MISC"
-SYSTEM="$FIRMWARE $WIFI $BLUETOOTH $GL $DRM $RIL $CHARGER"
+SYSTEM="$FIRMWARE $WIFI $BLUETOOTH $GL $DRM $RIL $AUDIO $CHARGER"
 
 rename_file () {
 	local src
