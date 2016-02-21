@@ -146,17 +146,29 @@ AUDIO="\
 $(make_multilib_paths "${AUDIO32}")
 "
 
-#CAMERA="/lib/hw/camera.mt6735.so \
-#/lib/libcamera_client_mtk.so /lib/libcam.halsensor.so /lib/libcam_hwutils.so /lib/libcam_utils.so /lib/libmeizucamera.so /lib/libmeizu.camera.algo.so /lib/libmmsdkservice.so /lib/libmmsdkservice.feature.so \
-#/lib/libcam1_utils.so /lib/libcamalgo.so /lib/libcam.camadapter.so /lib/libcam.camnode.so /lib/libcam.camshot.so /lib/libcam.client.so \
-#/lib/libcam.common.meizu.so /lib/libcam.device1.so /lib/libcamdrv.so /lib/libcameracustom.so /lib/libcam.exif.so /lib/libcam.iopipe.so \
-#/lib/libcam.jni.lomohaljni.so /lib/libcam.metadata.so /lib/libcam_mmp.so /lib/libcam.paramsmgr.so /lib/libcam_platform.so \
-#/lib/libcam.sdkclient.so /lib/libcam.utils.sensorlistener.so /lib/libcam.utils.so /lib/libcam.utils.cpuctrl.so \
-#/lib/libdngop.so /lib/libfeatureio.so /lib/libimageio_plat_drv.so /lib/libimageio.so /lib/libmatv_cust.so \
-#/lib/libmpoencoder.so /lib/libmpo.so \
-#/lib/libmtk_mmutils.so /vendor/lib/libsfb.so /lib/libvideo_render.so /lib/libvideostabilizer.so \
-#/lib/lib3a.so /lib/lib3a_sample.so /lib/libgraphite2.so /lib/libn3d3a.so /lib/libtiff.so /lib/libtouchfilter.so \
-#"
+CAMERA32="/lib/hw/camera.mt6735.so /lib/libcam_platform.so \
+/lib/lib3a.so /lib/lib3a_sample.so /lib/libSonyIMX230PdafLibrary.so \
+/lib/libcam.camadapter.so /lib/libcam.camnode.so /lib/libcam.camshot.so \
+/lib/libcam.client.so /lib/libcam.device1.so /lib/libcam.device3.so \
+/lib/libcam.exif.so /lib/libcam.exif.v3.so /lib/libcam.hal3a.v3.dng.so \
+/lib/libcam.hal3a.v3.so /lib/libcam.halsensor.so /lib/libcam.iopipe.so \
+/lib/libcam.metadata.so /lib/libcam.metadataprovider.so \
+/lib/libcam.paramsmgr.so /lib/libcam.sdkclient.so \
+/lib/libcam.utils.cpuctrl.so /lib/libcam.utils.sensorlistener.so \
+/lib/libcam.utils.so /lib/libcam1_utils.so /lib/libcam3_app.so \
+/lib/libcam3_hwnode.so /lib/libcam3_hwpipeline.so /lib/libcam3_pipeline.so \
+/lib/libcam3_utils.so /lib/libcam_hwutils.so /lib/libcam_mmp.so \
+/lib/libcam_utils.so /lib/libcamalgo.so /lib/libcamdrv.so \
+/lib/libcamera_client_mtk.so /lib/libcameracustom.so /lib/libdngop.so \
+/lib/libfeatureio.so /lib/libfeatureiodrv.so /lib/libimageio.so \
+/lib/libimageio_plat_drv.so /lib/libmatv_cust.so \
+/lib/libmmsdkservice.feature.so /lib/libmmsdkservice.so /lib/libmpo.so \
+/lib/libmpoencoder.so /lib/libmtk_mmutils.so /lib/libn3d3a.so \
+/lib/libts_face_beautify_hal.so \
+"
+CAMERA="\
+$(make_multilib_paths "${CAMERA32}")
+"
 
 SENSORS="/lib/hw/sensors.mt6735.so \
 /lib/libinvensense_hal.so /lib/libmllite.so \
@@ -176,7 +188,7 @@ MISC="/bin/akmd8963 /bin/akmd8975 /bin/ami304d /bin/bmm050d /bin/mc6420d /bin/me
 "
 
 #SYSTEM="$FIRMWARE $WIFI $GL $DRM $CODECS $RIL $AUDIO $BLUETOOTH $CAMERA $SENSORS $GPS $CHARGER $MISC"
-SYSTEM="$FIRMWARE $WIFI $BLUETOOTH $GL $DRM $RIL $AUDIO $CODECS $CHARGER"
+SYSTEM="$FIRMWARE $WIFI $BLUETOOTH $GL $DRM $RIL $AUDIO $CODECS $CAMERA $CHARGER"
 
 rename_file () {
 	local src
