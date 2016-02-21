@@ -128,6 +128,7 @@ RIL="\
 /bin/md_ctrl /bin/muxreport /bin/mtkrild /bin/mtkrildmd2 \
 /bin/terservice /lib64/libterservice.so \
 /lib/libexttestmode.so \
+/xbin/BGW \
 $(make_multilib_paths "${RIL32}") \
 ${CDMA}
 "
@@ -179,8 +180,13 @@ SENSORS="\
 $(make_multilib_paths "${SENSORS32}")
 "
 
-GPS="/lib/hw/gps.default.so /bin/mtk_agpsd /bin/wifi2agps /xbin/mnld /xbin/BGW /xbin/MPED \
-/lib/libcurl.so /lib/libssladp.so /lib/libmnl.so /lib/libDR.so /lib/libfusion.so /lib/libmpe.driver.so /lib/libmpe.sensorlistener.so \
+GPS32="\
+/lib/hw/gps.default.so \
+"
+GPS="\
+/bin/mtk_agpsd /bin/wifi2agps /xbin/mnld \
+/lib/libmnl.so \
+$(make_multilib_paths "${GPS32}")
 "
 
 CHARGER="/bin/kpoc_charger /lib/libshowlogo.so /lib/libsuspend.so"
@@ -191,7 +197,7 @@ MISC=" /bin/thermal /bin/thermald /bin/thermal_manager \
 "
 
 #SYSTEM="$FIRMWARE $WIFI $GL $DRM $CODECS $RIL $AUDIO $BLUETOOTH $CAMERA $SENSORS $GPS $CHARGER $MISC"
-SYSTEM="$FIRMWARE $WIFI $BLUETOOTH $GL $DRM $RIL $AUDIO $CODECS $CAMERA $SENSORS $CHARGER"
+SYSTEM="$FIRMWARE $WIFI $BLUETOOTH $GL $DRM $RIL $AUDIO $CODECS $CAMERA $SENSORS $GPS $CHARGER"
 
 rename_file () {
 	local src
