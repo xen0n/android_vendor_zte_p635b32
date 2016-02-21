@@ -44,6 +44,8 @@ $(make_multilib_paths "${BLUETOOTH32}")
 # 
 # gralloc && hwcomposer - hardware layer. rest is userspace lib.so layer.
 #
+# NOTE: /bin/program_binary_service is unusable because of lack of open-source
+# framework-level counterparts, hence not included.
 GL32="\
 /lib/egl/libGLES_mali.so \
 /lib/libm4u.so /lib/hw/gralloc.mt6735.so /lib/hw/hwcomposer.mt6735.so /lib/libbwc.so /lib/libgpu_aux.so \
@@ -191,13 +193,11 @@ $(make_multilib_paths "${GPS32}")
 
 CHARGER="/bin/kpoc_charger /lib/libshowlogo.so /lib/libsuspend.so"
 
-MISC=" /bin/thermal /bin/thermald /bin/thermal_manager \
+MISC="/bin/thermal /bin/thermald /bin/thermal_manager \
 /bin/ppl_agent /bin/matv \
-/bin/immvibed /lib/libpparam.so \
 "
 
-#SYSTEM="$FIRMWARE $WIFI $GL $DRM $CODECS $RIL $AUDIO $BLUETOOTH $CAMERA $SENSORS $GPS $CHARGER $MISC"
-SYSTEM="$FIRMWARE $WIFI $BLUETOOTH $GL $DRM $RIL $AUDIO $CODECS $CAMERA $SENSORS $GPS $CHARGER"
+SYSTEM="$FIRMWARE $WIFI $BLUETOOTH $GL $DRM $CODECS $RIL $AUDIO $CAMERA $SENSORS $GPS $CHARGER $MISC"
 
 rename_file () {
 	local src
