@@ -131,6 +131,7 @@ RIL="\
 /bin/terservice /lib64/libterservice.so \
 /lib/libexttestmode.so \
 /xbin/BGW \
+/bin/volte_imcb /bin/volte_stack /bin/volte_ua \
 $(make_multilib_paths "${RIL32}") \
 ${CDMA}
 "
