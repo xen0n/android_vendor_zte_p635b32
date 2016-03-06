@@ -49,7 +49,7 @@ $(make_multilib_paths "${BLUETOOTH32}")
 GL32="\
 /lib/egl/libGLES_mali.so \
 /lib/libm4u.so /lib/hw/gralloc.mt6735.so /lib/hw/hwcomposer.mt6735.so /lib/libbwc.so /lib/libgpu_aux.so \
-/lib/libdpframework.so /lib/libion.so /lib/libion_mtk.so /lib/libged.so \
+/lib/libdpframework.so /lib/libion.so /lib/libged.so \
 /lib/libaed.so /lib/libmtk_drvb.so /lib/libpq_prot.so /lib/libgui_ext.so /lib/libui_ext.so \
 /lib/libvcodecdrv.so /lib/libvcodec_utility.so \
 lib/libvc1dec_sa.ca7.so lib/libvp8dec_sa.ca7.so lib/libvp8enc_sa.ca7.so \
